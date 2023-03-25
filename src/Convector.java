@@ -71,7 +71,7 @@ class Convector {
     }
 
     public boolean checkArabic(String character) throws FormatException {
-        if (character.equals("0") ||
+       boolean check = character.equals("0") ||
                 character.equals("1") ||
                 character.equals("2") ||
                 character.equals("3") ||
@@ -81,16 +81,14 @@ class Convector {
                 character.equals("7") ||
                 character.equals("8") ||
                 character.equals("9") ||
-                character.equals("10")) {
-            return true;
-        } else {
-            throw new FormatException("Доступны только арабские цифры от 0 до 10.");
-        }
+                character.equals("10");
+            return check;
+
 
     }
 
     public boolean checkRoma(String character) throws FormatException {
-        if (character.equals("I") ||
+        boolean check = character.equals("I") ||
                 character.equals("II") ||
                 character.equals("III") ||
                 character.equals("IV") ||
@@ -99,11 +97,7 @@ class Convector {
                 character.equals("VII") ||
                 character.equals("VIII") ||
                 character.equals("IX") ||
-                character.equals("X")) {
-            return true;
-        } else {
-            throw new FormatException("Доступны только римские цифры от 1 до 10.");
-        }
+                character.equals("X");
+            return check;
     }
 }
-
