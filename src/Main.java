@@ -12,8 +12,12 @@ public class Main {
         String[] array;
 
         array = ex.split(" ");
+        if (array.length > 3) {
+            throw new FormatException("Введено не по формату");
+        }
 
         Convector convector = new Convector();
+
 
         boolean checkArabic = convector.checkArabic(array[0]) & convector.checkArabic(array[2]);
         if (checkArabic) {
@@ -25,6 +29,7 @@ public class Main {
                 int answer = calculator.calcul(array[1], a, b);
                 result = Integer.toString(answer);
         }
+
         boolean checkRoma = convector.checkRoma(array[0]) & convector.checkRoma(array[2]);
         if (checkRoma) {
             int a = convector.romaToArabic(array[0]);
@@ -38,6 +43,10 @@ public class Main {
 
             result = convector.arabicToRoma(answer);
         }
+        if (!checkArabic & !checkRoma) {
+            throw new FormatException("цифры введены не правильно");
+        }
+
         return result;
     }
 
